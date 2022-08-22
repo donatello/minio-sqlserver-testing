@@ -1,5 +1,7 @@
 # Backup and restore
 
+Ref: https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url-s3-compatible-object-storage?view=sql-server-ver16
+
 Using MinIO Play server
 
 Run each script by specifying the script file path in the `sqlcmd` command like so:
