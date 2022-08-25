@@ -19,3 +19,4 @@ WITH ( First_Name VARCHAR(15),
        Company  VARCHAR(15),
        Grade  VARCHAR(4)
      )
+     AS [cc];
