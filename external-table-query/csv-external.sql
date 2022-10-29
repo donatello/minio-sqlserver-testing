@@ -20,7 +20,7 @@ CREATE EXTERNAL TABLE heroes_csv (
 )
 WITH (
         LOCATION='/sqltest/Heroes.csv',
-        DATA_SOURCE = minio_play,
+        DATA_SOURCE = minio_dc,
         FILE_FORMAT = csv1
     )
 ;
