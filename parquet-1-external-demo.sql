@@ -36,7 +36,6 @@ CREATE EXTERNAL FILE FORMAT ParquetFormatWithSnappy WITH (
        )
 ;
 
-DROP EXTERNAL TABLE people_10m_parquetsnappy;
 CREATE EXTERNAL TABLE people_10m_parquetsnappy (
       id INT,
       firstName VARCHAR(40),

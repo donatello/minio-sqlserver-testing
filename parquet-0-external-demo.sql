@@ -30,7 +30,6 @@ WITH
 
 CREATE EXTERNAL FILE FORMAT ParquetFileFormat WITH(FORMAT_TYPE = PARQUET);
 
-DROP EXTERNAL TABLE sales_records_5k_parquet;
 CREATE EXTERNAL TABLE sales_records_5k_parquet(
           Region VARCHAR(80),
           Country VARCHAR(80),
