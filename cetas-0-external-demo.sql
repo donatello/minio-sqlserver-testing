@@ -2,7 +2,7 @@
 USE master;
 
 -- Delete the test db
-DROP DATABASE [MinIOTestDB];
+DROP DATABASE IF EXISTS [MinIOTestDB];
 
 -- Create the test db
 CREATE DATABASE [MinIOTestDB];
