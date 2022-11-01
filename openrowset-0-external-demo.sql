@@ -34,14 +34,14 @@ SELECT TOP 10 [cc].firstName, [cc].lastName
 FROM OPENROWSET
      ( BULK '/sqltest/people-10m/'
      , FORMAT = 'PARQUET'
-     , DATA_SOURCE = 'minio_play'
+     , DATA_SOURCE = 'minio_dc'
      ) AS [cc];
 
 SELECT *
 FROM OPENROWSET
      ( BULK '/sqltest/Heroes.csv'
      , FORMAT = 'CSV'
-     , DATA_SOURCE = 'minio_play'
+     , DATA_SOURCE = 'minio_dc'
      , FIRSTROW = 2
      )
 WITH ( First_Name VARCHAR(15),
