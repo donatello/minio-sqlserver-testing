@@ -1,7 +1,16 @@
--- USE master;
--- DROP DATABASE [MinIOTestDB];
+-- Switch to master db
+USE master;
+
+-- Delete the test db
+DROP DATABASE [MinIOTestDB];
+
+-- Create the test db
 CREATE DATABASE [MinIOTestDB];
 
+-- Execute all the above immediately
+GO
+
+-- switch to created DB
 USE [MinIOTestDB];
 
 -- Create a master key for encrypting database scoped credentials.
@@ -40,38 +49,9 @@ CREATE EXTERNAL TABLE sales_records_5k_parquet(
     )
     WITH (
       LOCATION = '/sqltest/SalesRecords5kk.parquet',
-      DATA_SOURCE = minio_play,
+      DATA_SOURCE = minio_dc,
       FILE_FORMAT = ParquetFileFormat
     )
 ;
 SELECT TOP 1 * FROM sales_records_5k_parquet;
 
--- Multiple same-schema parquet files:
-
-CREATE EXTERNAL FILE FORMAT ParquetFormatWithSnappy WITH (
-       FORMAT_TYPE = PARQUET
-       , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
-       )
-;
-
-DROP EXTERNAL TABLE people_10m_parquetsnappy;
-CREATE EXTERNAL TABLE people_10m_parquetsnappy (
-      id INT,
-      firstName VARCHAR(40),
-      middleName VARCHAR(30),
-      lastName VARCHAR(30),
-      gender VARCHAR(10),
-      birthDate DATETIME2,
-      ssn VARCHAR(20),
-      salary INT
-   )
-   WITH (
-     LOCATION = '/sqltest/people-10m/',
-     DATA_SOURCE = minio_play,
-     FILE_FORMAT = ParquetFormatWithSnappy
-   )
-;
-
--- SAMPLE queries to try
-SELECT TOP 3 * FROM people_10m_parquetsnappy;
-SELECT * FROM people_10m_parquetsnappy WHERE salary > 150000;
