@@ -1,11 +1,20 @@
--- USE master;
--- DROP DATABASE [MinIOTestDB];
+-- Switch to master db
+USE master;
+
+-- Delete the test db
+DROP DATABASE [MinIOTestDB];
+
+-- Create the test db
 CREATE DATABASE [MinIOTestDB];
 
+-- Execute all the above immediately
+GO
+
+-- switch to created DB
 USE [MinIOTestDB];
 
 -- Create a master key for encrypting database scoped credentials.
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'somesecret!';
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'somesecret123!';
 
 -- Create minio credential (Play server)
 CREATE DATABASE SCOPED CREDENTIAL minio_dc_cred
