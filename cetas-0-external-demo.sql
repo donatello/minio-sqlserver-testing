@@ -39,6 +39,8 @@ WITH (FORMAT_TYPE = DELIMITEDTEXT,
           USE_TYPE_DEFAULT = True)
 )
 
+GO
+
 -- create a table stored on MinIO in parquet format at given location.
 CREATE EXTERNAL TABLE computed_table
 WITH
