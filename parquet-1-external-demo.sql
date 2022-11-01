@@ -14,7 +14,7 @@ GO
 USE [MinIOTestDB];
 
 -- Create a master key for encrypting database scoped credentials.
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'somesecret!';
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'somesecret123!';
 
 -- Create minio credential (Play server)
 CREATE DATABASE SCOPED CREDENTIAL minio_dc_cred
