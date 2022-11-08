@@ -34,14 +34,15 @@ The purpose is to recover disk space on SQLServer when tables get large.
 2. Show that file now exists in MinIO
 
 ``` shell
-mc.exe cat dcmin/sqltest/Heroes.csv
+mc.exe ls dcmin/sqltest/heroes.csv
+mc.exe cat dcmin/sqltest/heroes.csv/<filename>
 
 ```
 
 3. Cleanup
 
 ``` shell
-mc.exe rm dcmin/sqltest/Heroes.csv
+mc.exe rm -r --force dcmin/sqltest/heroes.csv
 ```
 
 
