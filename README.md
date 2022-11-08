@@ -1,5 +1,37 @@
 # Testing SQL Server + MinIO integration scenarios
 
+## Demo
+
+### Drop a file into a bucket and read data via external tables
+
+NOTE: Shell commands are run from `C:\Users\Administrators\Downloads` as this is where `mc.exe` is present.
+
+1. Setup steps
+
+``` shell
+
+# Copy data into bucket for sqlserver
+mc.exe cp -r dcminio/datasets/people-10m/ dcminio/sqltest/people-10m/
+```
+
+2. Show demo script `parquet-1-external-demo.sql`
+
+3. Cleanup steps
+
+``` shell
+
+# Remove the data from dcminio/sqltest/ for cleanup
+mc.exe rm -r --force dcminio/sqltest/people-10m
+
+```
+
+### Move data into MinIO
+
+The purpose is to recover disk space on SQLServer when tables get large.
+
+1. Show demo script `move-heroes-demo.sql`
+
+
 ## External table feature demos
 
 Please see the scripts at the top level, ending with `-demo.sql`.
@@ -52,3 +84,4 @@ GO
 RECONFIGURE;
 GO
 ```
+
