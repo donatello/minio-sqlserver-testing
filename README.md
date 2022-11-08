@@ -11,7 +11,7 @@ NOTE: Shell commands are run from `C:\Users\Administrators\Downloads` as this is
 ``` shell
 
 # Copy data into bucket for sqlserver
-mc.exe cp -r dcminio/datasets/people-10m/ dcminio/sqltest/people-10m/
+mc.exe cp -r dcmin/datasets/people-10m/ dcmin/sqltest/people-10m/
 ```
 
 2. Show demo script `parquet-1-external-demo.sql`
@@ -20,8 +20,8 @@ mc.exe cp -r dcminio/datasets/people-10m/ dcminio/sqltest/people-10m/
 
 ``` shell
 
-# Remove the data from dcminio/sqltest/ for cleanup
-mc.exe rm -r --force dcminio/sqltest/people-10m
+# Remove the data from dcmin/sqltest/ for cleanup
+mc.exe rm -r --force dcmin/sqltest/people-10m
 
 ```
 
