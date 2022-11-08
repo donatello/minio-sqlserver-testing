@@ -59,7 +59,7 @@ WITH (FORMAT_TYPE = DELIMITEDTEXT,
       FORMAT_OPTIONS(
           FIELD_TERMINATOR = ',',
           STRING_DELIMITER = '"',
-          FIRST_ROW = 2,
+          FIRST_ROW = 1,
           USE_TYPE_DEFAULT = True)
 )
 
