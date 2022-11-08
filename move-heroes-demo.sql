@@ -22,11 +22,11 @@ CREATE TABLE heroes (
     grade varchar(10)
 );
 
-INSERT INTO heroes (first_name, lastname, company, grade)
+INSERT INTO heroes (first_name, last_name, company, grade)
 VALUES ('Peter','Parker','Marvel','A'),
-       ('Bruce','Wayne','DC','A+')','
-       ('Tony','Stark','Marvel','B')','
-       ('Steve','Rogers','Marvel','B+')','
+       ('Bruce','Wayne','DC','A+'),
+       ('Tony','Stark','Marvel','B'),
+       ('Steve','Rogers','Marvel','B+'),
        ('James','Howlett','Marvel','A+');
 
 -- SETUP DONE

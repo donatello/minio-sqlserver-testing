@@ -31,6 +31,19 @@ The purpose is to recover disk space on SQLServer when tables get large.
 
 1. Show demo script `move-heroes-demo.sql`
 
+2. Show that file now exists in MinIO
+
+``` shell
+mc.exe cat dcmin/sqltest/Heroes.csv
+
+```
+
+3. Cleanup
+
+``` shell
+mc.exe rm dcmin/sqltest/Heroes.csv
+```
+
 
 ## External table feature demos
 
