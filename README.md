@@ -1,6 +1,6 @@
 # Testing SQL Server + MinIO integration scenarios
 
-## Demo
+## Speaking Demos
 
 ### Drop a file into a bucket and read data via external tables
 
@@ -45,7 +45,7 @@ mc.exe cat dcmin/sqltest/heroes.csv/<filename>
 mc.exe rm -r --force dcmin/sqltest/heroes.csv
 ```
 
-## Demos 2
+## Floor Demos
 
 1. Backup-Restore Demo: Use the scripts in the [`backup-restore`](/backup-restore) directory in order.
    Ref: https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url-s3-compatible-object-storage?view=sql-server-ver16
