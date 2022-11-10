@@ -13,27 +13,6 @@ GO
 -- switch to created DB
 USE [MinIOTestDB];
 
--- SETUP steps (create the heroes table in sqlserver)
-
-CREATE TABLE heroes (
-    first_name varchar(50),
-    last_name varchar(50),
-    company varchar(50),
-    grade varchar(10)
-);
-
-INSERT INTO heroes (first_name, last_name, company, grade)
-VALUES ('Peter','Parker','Marvel','A'),
-       ('Bruce','Wayne','DC','A+'),
-       ('Tony','Stark','Marvel','B'),
-       ('Steve','Rogers','Marvel','B+'),
-       ('James','Howlett','Marvel','A+');
-
--- SETUP DONE
-
--- Show rows in table
-SELECT * FROM heroes;
-
 -- SETUP CONNECTIVITY TO MinIO
 
 -- Create a master key for encrypting database scoped credentials.
@@ -52,6 +31,7 @@ WITH
 );
 
 CREATE EXTERNAL FILE FORMAT ParquetFileFormat WITH(FORMAT_TYPE = PARQUET);
+GO
 
 -- create a table stored on MinIO in csv format at given location.
 CREATE EXTERNAL TABLE darleens
@@ -71,4 +51,4 @@ where firstName = 'Darleen';
 
 -- read the output data written to MinIO
 
-SELECT TOP 10 FROM darleens;
+SELECT TOP 10 * FROM darleens;
