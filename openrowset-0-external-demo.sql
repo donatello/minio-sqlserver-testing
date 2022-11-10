@@ -30,7 +30,7 @@ WITH
 
 GO
 
-SELECT TOP 10 [cc].firstName, [cc].lastName
+SELECT TOP 10 [cc].Region, [cc]."Total Cost", [cc]."Total Profit"
 FROM OPENROWSET
      ( BULK '/sqldemo2/SalesRecords5kk.parquet'
      , FORMAT = 'PARQUET'
