@@ -37,16 +37,17 @@ FROM OPENROWSET
      , DATA_SOURCE = 'minio_dc'
      ) AS [cc];
 
-SELECT *
-FROM OPENROWSET
-     ( BULK '/sqltest/Heroes.csv'
-     , FORMAT = 'CSV'
-     , DATA_SOURCE = 'minio_dc'
-     , FIRSTROW = 2
-     )
-WITH ( First_Name VARCHAR(15),
-       Last_Name  VARCHAR(15),
-       Company  VARCHAR(15),
-       Grade  VARCHAR(4)
-     )
-     AS [cc];
+
+-- SELECT *
+-- FROM OPENROWSET
+--      ( BULK '/sqltest/Heroes.csv'
+--      , FORMAT = 'CSV'
+--      , DATA_SOURCE = 'minio_dc'
+--      , FIRSTROW = 2
+--      )
+-- WITH ( First_Name VARCHAR(15),
+--        Last_Name  VARCHAR(15),
+--        Company  VARCHAR(15),
+--        Grade  VARCHAR(4)
+--      )
+--      AS [cc];

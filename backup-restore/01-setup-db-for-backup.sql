@@ -1,3 +1,4 @@
+-- This script creates test data for backup/restore
 USE [master];
 GO
 

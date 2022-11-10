@@ -45,6 +45,16 @@ mc.exe cat dcmin/sqltest/heroes.csv/<filename>
 mc.exe rm -r --force dcmin/sqltest/heroes.csv
 ```
 
+## Demos 2
+
+1. Backup-Restore
+2. Openrowset -> read a parquet file and read a csv file
+3. External table -> read a parquet file
+4. cetas -> write internal table to MinIO
+5. cetas -> write external table to MinIO
+6. Join internal and external table
+7. Join external and external table
+
 
 ## External table feature demos
 
