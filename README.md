@@ -14,7 +14,7 @@ NOTE: Shell commands are run from `C:\Users\Administrators\Downloads` as this is
 mc.exe cp -r dcmin/datasets/people-10m/ dcmin/sqltest/people-10m/
 ```
 
-2. Show demo script `parquet-1-external-demo.sql`
+2. Show demo script [`parquet-1-external-demo.sql`](/parquet-1-external-demo.sql)
 
 3. Cleanup steps
 
@@ -29,7 +29,7 @@ mc.exe rm -r --force dcmin/sqltest/people-10m
 
 The purpose is to recover disk space on SQLServer when tables get large.
 
-1. Show demo script `move-heroes-demo.sql`
+1. Show demo script [`move-heroes-demo.sql`](/move-heroes-demo.sql)
 
 2. Show that file now exists in MinIO
 
@@ -48,41 +48,26 @@ mc.exe rm -r --force dcmin/sqltest/heroes.csv
 ## Demos 2
 
 1. Backup-Restore Demo: Use the scripts in the [`backup-restore`](/backup-restore) directory in order.
+   Ref: https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url-s3-compatible-object-storage?view=sql-server-ver16
 2. Access external data with OpenRowSet:
    1. Read a parquet file - [`openrowset-0-external-demo.sql`](/openrowset-0-external-demo.sql)
    2. Read a CSV file - [`openrowset-1-external-demo.sql`](/openrowset-1-external-demo.sql)
 3. Access external data with an External Table
    1. Read a parquet file - [`parquet-0-external-demo.sql`](/parquet-0-external-demo.sql)
-4. cetas -> write internal table to MinIO
-5. cetas -> write external table to MinIO
-6. Join internal and external table
-7. Join external and external table
+4. Create External Table from SQLServer (write tables to MinIO)
 
+   NOTE: Delete the outputs directory with `mc.exe rm -r --force dcmin/sqldemo2/cetas-outputs` before the demo.
 
-## External table feature demos
+   1. Copy an internal table into MinIO - [`cetas-0-external-demo.sql`](/cetas-0-external-demo.sql)
+   2. Process an external table and write results into MinIO - [`cetas-1-external-demo.sql`](/cetas-1-external-demo.sql)
+5. Join internal and external table
+6. Join external and external table
 
-Please see the scripts at the top level, ending with `-demo.sql`.
-
-Each script is self contained and starts of by deleting the database if it exists, before creating and using it.
 
 ## Backup and restore demo
 
 Switch to `backup-restore` dir.
 
-Ref: https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url-s3-compatible-object-storage?view=sql-server-ver16
-
-Using MinIO Play server
-
-Run each script by specifying the script file path in the `sqlcmd` command like so:
-
-``` shell
-sqlcmd -S 15.15.15.105 -U sa -i cred.sql -P $SECRET
-```
-
-1. Run `sample-db.sql` - create a sample db.
-2. Run `cred.sql` - create MinIO credential in SQL server
-3. Run `backup.sql` - create a backup.
-4. Run `restore.sql` - delete the existing db and restore from backup.
 
 ## Appendix
 

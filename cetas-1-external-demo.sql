@@ -51,27 +51,24 @@ WITH
 ,   CREDENTIAL = minio_dc_cred
 );
 
-CREATE EXTERNAL FILE FORMAT csv1
-WITH (FORMAT_TYPE = DELIMITEDTEXT,
-      FORMAT_OPTIONS(
-          FIELD_TERMINATOR = ',',
-          STRING_DELIMITER = '"',
-          FIRST_ROW = 1,
-          USE_TYPE_DEFAULT = True)
-)
+CREATE EXTERNAL FILE FORMAT ParquetFileFormat WITH(FORMAT_TYPE = PARQUET);
 
 -- create a table stored on MinIO in csv format at given location.
-CREATE EXTERNAL TABLE heroes_csv
+CREATE EXTERNAL TABLE darleens
 WITH
-( LOCATION = '/sqldemo2/cetas-outputs/heroes.csv',
+( LOCATION = '/sqldemo2/cetas-outputs/darleens.parquet',
   DATA_SOURCE = minio_dc,
-  FILE_FORMAT = csv1
+  FILE_FORMAT = ParquetFileFormat
 )
 AS
 SELECT *
-FROM heroes;
+FROM OPENROWSET
+     ( BULK '/sqldemo2/people-10m/'
+     , FORMAT = 'PARQUET'
+     , DATA_SOURCE = 'minio_dc'
+     ) AS [cc]
+where firstName = 'Darleen';
 
+-- read the output data written to MinIO
 
--- Read heroes table from MinIO
-SELECT * FROM heroes_csv;
-
+SELECT TOP 10 FROM darleens;
