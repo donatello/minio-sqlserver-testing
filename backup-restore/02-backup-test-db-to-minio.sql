@@ -1,4 +1,6 @@
 -- Credential for MinIO
+DROP CREDENTIAL [s3://15.15.15.185:9000/sqltest];
+
 CREATE CREDENTIAL   [s3://15.15.15.185:9000/sqltest]
 WITH
         IDENTITY    = 'S3 Access Key',
