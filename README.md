@@ -60,13 +60,8 @@ mc.exe rm -r --force dcmin/sqltest/heroes.csv
 
    1. Copy an internal table into MinIO - [`cetas-0-external-demo.sql`](/cetas-0-external-demo.sql)
    2. Process an external table and write results into MinIO - [`cetas-1-external-demo.sql`](/cetas-1-external-demo.sql)
-5. Join internal and external table
-6. Join external and external table
-
-
-## Backup and restore demo
-
-Switch to `backup-restore` dir.
+5. Join internal and external table - [`join-internal-external.sql`](/join-internal-external.sql)
+6. Join external and external table - [`join-external-external.sql`](/join-external-external.sql)
 
 
 ## Appendix
