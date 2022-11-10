@@ -30,11 +30,16 @@ WITH
 
 GO
 
-SELECT TOP 10 [cc].firstName, [cc].lastName
+SELECT *
 FROM OPENROWSET
-     ( BULK '/sqldemo2/SalesRecords5kk.parquet'
-     , FORMAT = 'PARQUET'
+     ( BULK '/sqldemo2/Heroes.csv'
+     , FORMAT = 'CSV'
      , DATA_SOURCE = 'minio_dc'
-     ) AS [cc];
-
-
+     , FIRSTROW = 2
+     )
+WITH ( First_Name VARCHAR(15),
+       Last_Name  VARCHAR(15),
+       Company  VARCHAR(15),
+       Grade  VARCHAR(4)
+     )
+     AS [cc];
