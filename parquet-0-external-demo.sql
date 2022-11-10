@@ -47,10 +47,11 @@ CREATE EXTERNAL TABLE sales_records_5k_parquet(
           [Order ID] BIGINT
     )
     WITH (
-      LOCATION = '/sqltest/SalesRecords5kk.parquet',
+      LOCATION = '/sqldemo2/SalesRecords5kk.parquet',
       DATA_SOURCE = minio_dc,
       FILE_FORMAT = ParquetFileFormat
     )
 ;
+
 SELECT TOP 1 * FROM sales_records_5k_parquet;
 
