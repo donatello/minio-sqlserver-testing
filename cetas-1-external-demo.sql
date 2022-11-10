@@ -33,7 +33,7 @@ WITH
 CREATE EXTERNAL FILE FORMAT ParquetFileFormat WITH(FORMAT_TYPE = PARQUET);
 GO
 
--- create a table stored on MinIO in csv format at given location.
+-- create a table stored on MinIO in Parquet format at given location.
 CREATE EXTERNAL TABLE darleens
 WITH
 ( LOCATION = '/sqldemo2/cetas-outputs/darleens.parquet',
