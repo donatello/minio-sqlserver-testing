@@ -47,7 +47,7 @@ mc.exe rm -r --force dcmin/sqltest/heroes.csv
 
 ## Demos 2
 
-1. Backup-Restore
+1. Backup-Restore Demo: Use the scripts in the [`backup-restore`][/backup-restore] directory in order.
 2. Openrowset -> read a parquet file and read a csv file
 3. External table -> read a parquet file
 4. cetas -> write internal table to MinIO
